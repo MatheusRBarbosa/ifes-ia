@@ -3,15 +3,27 @@ from tools import *
 from star import *
 
 def main():
-    if len(sys.argv) == 2:
+    if len(sys.argv) >= 2:
+
         map = read_text_file(sys.argv[1])
 
-        initial_state = input("Entre com o x e y do estado inicial. Ex: 0 3: ")
-        initial_state = tuple(int(x) for x in initial_state.split(" "))
-        final_state = input("Entre com o x e y do estado final. Ex: 0 3: ")
-        final_state = tuple(int(x) for x in final_state.split(" "))
+        if len(sys.argv) == 6:
+            initial_node = tuple([int(sys.argv[2]), int(sys.argv[3])])
+            final_node = tuple([int(sys.argv[4]), int(sys.argv[5])])
+        else:
+            initial_node = input("Entre com o x e y do estado inicial. Ex: 0 3: ")
+            initial_node = tuple(int(x) for x in initial_node.split(" "))
+            final_node = input("Entre com o x e y do estado final. Ex: 0 3: ")
+            final_node = tuple(int(x) for x in final_node.split(" "))
 
-        print_map(map, initial_state, final_state)
+        print("=== Matriz inicial ===")
+        print_map(map, initial_node, final_node)
+
+        result = star_main(map, initial_node, final_node)
+        
+        print("=== Matriz com resultado ===")
+        print_map(map, initial_node, final_node, result)
+        
     else:
         print("Erro! Favor informar arquivo do mapa")
 
