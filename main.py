@@ -16,14 +16,15 @@ def main():
             final_node = input("Entre com o x e y do estado final. Ex: 0 3: ")
             final_node = tuple(int(x) for x in final_node.split(" "))
 
-        print("=== Matriz inicial ===")
-        print_map(map, initial_node, final_node)
+        if (check_inputs([initial_node, final_node], map)):
+            print("=== Matriz inicial ===")
+            print_map(map, initial_node, final_node)
 
-        result = star_main(map, initial_node, final_node)
-        
-        print("=== Matriz com resultado ===")
-        print_map(map, initial_node, final_node, result)
-        
+            result = star_main(map, initial_node, final_node)
+            
+            print("=== Matriz com resultado ===")
+            print_map(map, initial_node, final_node, result)
+    
     else:
         print("Erro! Favor informar arquivo do mapa")
 
