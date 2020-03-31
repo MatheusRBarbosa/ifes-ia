@@ -109,5 +109,48 @@ Para se realizar testes no programa, o usuário deve passar três paramêtros, o
 
 Ex:<br>
 `python main.py mapa.txt`<br>
-`>> Entre com o x e y do estado inicial. Ex: 0 3: 0 2`<br>
-`>> Entre com o x e y do estado final. Ex: 0 3: 4 4`<br>
+`>> Entre com o x e y do nó inicial. Ex: 0 3: 0 2`<br>
+`>> Entre com o x e y do nó final. Ex: 0 3: 4 4`<br>
+
+Ou simplesmente:
+
+`python main.py mapa.txt 0 2 4 4`<br>
+
+Com isso no console será impresso duas matrizes, a de entrada e de resultado onde:
+
+**0** - É um espaço livre que pode ser percorrido
+**1** - Representa um espaço ocupado por um obstáculo
+**S** - Indicia o nó inicial
+**G** - Indica o nó final
+**#** - Indica o caminho percorrido para saindo de **S** e indo para **G**
+
+Usando o nó inicial em `(0, 0)`e o final em `(4, 4)` o resultado de saída será:
+
+```
+ === Matriz inicial ===
+['S', '0', '1', '0', '0', '0', '0', '0', '0', '0']
+['0', '0', '1', '0', '0', '0', '0', '0', '0', '0']
+['0', '0', '0', '0', '0', '0', '0', '0', '0', '0']
+['0', '0', '0', '0', '0', '1', '0', '0', '0', '0']
+['1', '1', '1', '0', 'G', '1', '0', '0', '0', '0']
+['0', '0', '0', '0', '0', '1', '0', '0', '0', '0']
+['0', '0', '0', '0', '0', '0', '0', '0', '1', '1']
+['0', '0', '0', '0', '0', '0', '0', '0', '0', '0']
+['0', '0', '0', '0', '1', '1', '1', '0', '0', '0']
+['0', '0', '0', '0', '0', '0', '0', '0', '0', '0']
+
+=== Matriz com resultado ===
+['S', '0', '1', '0', '0', '0', '0', '0', '0', '0']
+['#', '0', '1', '0', '0', '0', '0', '0', '0', '0']
+['#', '0', '0', '0', '0', '0', '0', '0', '0', '0']
+['#', '#', '#', '#', '0', '1', '0', '0', '0', '0']
+['1', '1', '1', '#', 'G', '1', '0', '0', '0', '0']
+['0', '0', '0', '0', '0', '1', '0', '0', '0', '0']
+['0', '0', '0', '0', '0', '0', '0', '0', '1', '1']
+['0', '0', '0', '0', '0', '0', '0', '0', '0', '0']
+['0', '0', '0', '0', '1', '1', '1', '0', '0', '0']
+['0', '0', '0', '0', '0', '0', '0', '0', '0', '0']
+
+```
+
+Caso seja passado outros mapas ou outros nós iniciais e finais o resultado será semelhante, pois a solução é genérica a essas condições.
