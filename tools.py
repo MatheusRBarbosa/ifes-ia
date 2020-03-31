@@ -12,12 +12,34 @@ def read_text_file(file_path):
     
     return map
 
+def print_arrows(current_node, next_node):
+
+    # Caso o node atual seja igual ao proximo, significa que ele eh o ultimo
+    if (current_node == next_node):
+        return "#"
+    else:
+        if (next_node[0] > current_node[0]):
+            return "!"
+        elif (next_node[1] > current_node[1]):
+            return ">"
+        elif (next_node[0] < current_node[0]):
+            return "^"
+        elif (next_node[1] < current_node[1]):
+            return "<" 
+        
 
 def print_map(map, initial_node, final_node, result=None):
     map_copy = map
 
     if result != None:
-        for node in result:
+        for i, node in enumerate(result):
+            
+            if (i+1 < len(result)):
+                next_node = result[i+1]
+            else:
+                next_node = node
+
+            #map_copy[node[0]][node[1]] = print_arrows(node, next_node)
             map_copy[node[0]][node[1]] = "#"
 
     map_copy[initial_node[0]][initial_node[1]] = "S"

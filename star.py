@@ -1,5 +1,6 @@
 # Arquivo para mantar a logica do algoritimo A estrela
 
+# Funcao para criar a lista com o o caminho final na ordem correta
 def result(node, path, map):
     p = []
     p.append(node)
@@ -16,6 +17,7 @@ def calc_goal_distance(node, final_node):
     
     return dx + dy
 
+# Encontra o node com a melhor heuristica
 def find_best_node(open_list, heuristic):
     best_heuristic = 1000000000
     current_index = 0
@@ -28,6 +30,7 @@ def find_best_node(open_list, heuristic):
     
     return current_index
 
+# Encontra os vizinhos possiveis do node passado
 def find_next_nodes(current_node, map):
     m = len(map)
     n = len(map[0])
@@ -50,20 +53,28 @@ def find_next_nodes(current_node, map):
     
     return next_nodes
 
+# Main do algoritimo A*
 def star_main(map, initial_node, final_node):
-    found = False
+    
+    # Conjunto de listas de nos para perrcorer e nos percorridos
     open_list = []
     closed_list = []
 
+    # Dicionario para armazenar os nos que ja foram percorridos
     path = {}
     path[initial_node] = None
-    h = {}
+
+    # Flag para indicar se o goal foi encontrado
+    found = False
 
     # Distancia percorrida
     f = 0
+    
     # Distancia para o objetivo
     g = calc_goal_distance(initial_node, final_node)
+    
     # heuristica
+    h = {}
     h[initial_node] = f + g
 
     open_list.append(initial_node)
