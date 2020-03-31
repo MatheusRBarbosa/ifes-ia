@@ -1,11 +1,11 @@
 # Inteligencia Artificial
 
-#### Membros
+### Membros
 Matheus Barbosa - 20152bsi0218
 
-## Relatório - Implementação do A*
+# Relatório - Implementação do A*
 
-### Problema
+## Problema
 
 O problema proposto consiste em um robô achar um caminho de um ponto de origem até um ponto destino dentro de um determinado mapa sem colidir com nenhum obstáculo.
 
@@ -15,23 +15,23 @@ A imagem acima representa o mapa em questão. Onde o quadradro vermelho represen
 
 O problema também determina que o robô também pode fazer movimentos apenas em 90 graus, ou seja, não pode realizar movimentos em diagonais.
 
-### Solução
+## Solução
 A solução usada neste trabalho consiste no algoritimo de A* ( A-estrela ) usando a heurística de manhattan seguindo a seguinte fórmula matemática:
 
 **f(n) = g(n) + h(n)**
 
-Onde **g(n)** é a distância do ponto atual até o objetivo final, **h(n)** é o valor da heurística de manhattan e por fim, **f(n)** é a distância percorrida pelo nó.
+Onde **g(n)** é a distância do ponto atual até o objetivo final, **h(n)** é o valor da heurística e por fim, **f(n)** é a distância percorrida pelo nó.
 
-#### Organização do código
+### Organização do código
 O código está separado em três arquivos. **main.py**, **star.py** e **tools.py**.
 
 **tools.py** é o arquivo que contém as funções auxiliares, como `print_map`, `read_text_file`, `check_inputs`. Que são funções que não fazem parte da lógica do algoritimo do A*.
 
-**star.py** é o arquivo eu contém todas as funções da lógica do algoritimo A*.
+**star.py** é o arquivo eu contém, exclusivamente, todas as funções da lógica do algoritimo A*.
 
 **main.py** é o arquivo principal, que usa os outros arquivos para juntar tudo e interagir o o usuário do programa.
 
-#### Implementação
+### Implementação
 
 Nesse relatório só será apresentado os principais detalhes da solução. Para visualizar a solução completa basta acessar os arquivos deste repositório.
 
@@ -60,7 +60,7 @@ def star_main(map, initial_node, final_node):
 
   open_list.append(initial_node)
 ```
-O código é a principal função do algoritimo, a função começa com a definição das principais variáveis e listas usadas na solução. A função `calc_goal_distance(node, final_node)` calcula a distância do nó atual (`node`) até o nó destino (`final_node`).
+O código acima é a principal função do algoritimo, a função começa com a definição das principais variáveis e listas usadas na solução. A função `calc_goal_distance(node, final_node)` calcula a distância do nó atual (`node`) até o nó destino (`final_node`).
 
 Após a inicialização das variaveis na `star_main` é necessário criar uma lógica que verifique o custos dos nós a serem percorridos dentro de `open_list`.
 
@@ -103,7 +103,7 @@ if found == True:
 A função `result` consiste em pegar o nó atual (que é igual ao nó final) e encontrar o caminho reverso dele, o "qual caminho que levou a chegar até o nó final". E retornar o conjuto de nós que compõe esse caminho.
 
 
-### Resultados
+## Resultados
 
 Para se realizar testes no programa, o usuário deve passar três paramêtros, o **mapa**, **par de coordenadas de início**, **par de coordenadas de objetivo final**
 
@@ -116,15 +116,15 @@ Ou simplesmente:
 
 `python main.py mapa.txt 0 2 4 4`<br>
 
-Com isso no console será impresso duas matrizes, a de entrada e de resultado onde:
+Ao executar o programa, no console será impresso duas matrizes, a de entrada e de resultado onde:
 
-**0** - É um espaço livre que pode ser percorrido
-**1** - Representa um espaço ocupado por um obstáculo
-**S** - Indicia o nó inicial
-**G** - Indica o nó final
-**#** - Indica o caminho percorrido para saindo de **S** e indo para **G**
+**0** - É um espaço livre que pode ser percorrido <br>
+**1** - Representa um espaço ocupado por um obstáculo <br>
+**S** - Indicia o nó inicial <br>
+**G** - Indica o nó final <br>
+**#** - Indica o caminho percorrido saindo de **S** e indo para **G** <br>
 
-Usando o nó inicial em `(0, 0)`e o final em `(4, 4)` o resultado de saída será:
+Usando o nó inicial em `(0, 0)` e o final em `(4, 4)` o resultado de saída será:
 
 ```
  === Matriz inicial ===
