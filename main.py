@@ -11,9 +11,9 @@ def main():
             initial_node = tuple([int(sys.argv[2]), int(sys.argv[3])])
             final_node = tuple([int(sys.argv[4]), int(sys.argv[5])])
         else:
-            initial_node = input("Entre com o x e y do estado inicial. Ex: 0 3: ")
+            initial_node = input("Entre com o x e y do nó inicial. Ex: 0 3: ")
             initial_node = tuple(int(x) for x in initial_node.split(" "))
-            final_node = input("Entre com o x e y do estado final. Ex: 0 3: ")
+            final_node = input("Entre com o x e y do nó final. Ex: 0 3: ")
             final_node = tuple(int(x) for x in final_node.split(" "))
 
         if (check_inputs([initial_node, final_node], map)):
