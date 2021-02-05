@@ -152,7 +152,6 @@ Usando o nó inicial em `(0, 0)` e o final em `(4, 4)` o resultado de saída ser
 ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0']
 ['0', '0', '0', '0', '1', '1', '1', '0', '0', '0']
 ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0']
-
 ```
 
 Caso seja passado outros mapas ou outros nós iniciais e finais o resultado será semelhante, pois a solução é genérica a essas condições.
@@ -173,7 +172,7 @@ ou
 
 `python main.py mapa.txt 0 2 4 4 --arrows`
 
-A matriz resultando será parecida com:
+A matriz resultante será parecida com:
 
 ```
 === Matriz com resultado ===
@@ -187,6 +186,5 @@ A matriz resultando será parecida com:
 ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0']
 ['0', '0', '0', '0', '1', '1', '1', '0', '0', '0']
 ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0']
-
 ```
 
