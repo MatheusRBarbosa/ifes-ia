@@ -7,6 +7,20 @@ Matheus Kleber Rodrigues Barbosa - 20152bsi0218
 # Relatório - Implementação do A*
 
 ## Explicação teórica do algoritmo
+
+O algoritmo do A* é um algoritmo de busca, que visa encontrar o caminho com menor custo entre o inicio do percurso e seu respectivo objetivo final, sem colidir com nenhum obstáculo. Também vale destacar que esse algoritmo é baseado em um mapa, que normalmente consiste em uma grade limitada(uma matriz), onde que cada espaço dessa grade é chamado de nó.
+
+Para encontrar o caminho do nó inicial até o final é necessário começar a busca pelos vizinhos do nó inicial e repetindo esse processo para cada nó adjacente encontrado que não seja um obstáculo. A seguir esse processo será detalhado melhor.
+
+1. Para encontrar o caminho do nó inicial até o final é necessário, primeiramente, descobrir todos os nós adjacentes ao nó inicial que não seja um obstáculo. Ao descobrir os nós adjacentes, salve-os e coloque o nó atual como seu antecessor, seguindo essa lógica, quando descobrir o nó final será possível descobrir o caminho que foi percorrido para chegar a esse ponto.
+
+2. É necessário repetir esse processo de descobrir vizinhos a partir de um nó, mas agora, deve-se pegar um dos nós adjacentes descobertos anteriormente, o nó que deve ser escolhido para repetir esse processo é o nó que possui o custo mais baixo
+
+3. Para descobrir o nó de custo mais baixo, é necessário calcular seguindo a fórmula `F = G + H`, onde **G** é custo para se mover do nó atual até o nó desejado. **H** é o custo estimado da distância do nó desejado até o nó destino final. Por fim, **F** será a distância percorrida pelo nó. Agora, sabendo-se qual é o nó com o custo mais baixo, realiza o deslocamento para esse nó e referencia o anterior como seu antecessor.
+
+Em resumo, esse é a lógica centra do algoritmo. Quando se atingir o nó final, basta acessar a lista de antecessores para descobrir qual caminho foi percorrido.
+
+
 ## Problema
 
 O problema proposto consiste em um robô achar um caminho de um ponto de origem até um ponto destino dentro de um determinado mapa sem colidir com nenhum obstáculo.
@@ -22,7 +36,7 @@ A solução usada neste trabalho consiste no algoritimo de A* ( A-estrela ) usan
 
 **f(n) = g(n) + h(n)**
 
-Onde **g(n)** é a distância do ponto atual até o objetivo final, **h(n)** é o valor da heurística e por fim, **f(n)** é a distância percorrida pelo nó.
+Onde **g(n)** é a distância do ponto atual até o ponto desejado, **h(n)** é o valor da heurística e por fim, **f(n)** é a distância percorrida pelo nó.
 
 ### Organização do código
 O código está separado em três arquivos: **main.py**, **star.py** e **tools.py**.
