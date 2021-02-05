@@ -28,7 +28,7 @@ def print_arrows(current_node, next_node):
             return "<" 
         
 
-def print_map(map, initial_node, final_node, result=None):
+def print_map(map, initial_node, final_node, result=None, print_arrow_style=False):
     map_copy = map
 
     if result != None:
@@ -39,8 +39,10 @@ def print_map(map, initial_node, final_node, result=None):
             else:
                 next_node = node
 
-            #map_copy[node[0]][node[1]] = print_arrows(node, next_node)
-            map_copy[node[0]][node[1]] = "#"
+            if(print_arrow_style):
+                map_copy[node[0]][node[1]] = print_arrows(node, next_node)
+            else:
+                map_copy[node[0]][node[1]] = "#"
 
     map_copy[initial_node[0]][initial_node[1]] = "S"
     map_copy[final_node[0]][final_node[1]] = "G"
