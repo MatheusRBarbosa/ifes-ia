@@ -1,7 +1,7 @@
 # Inteligencia Artificial
 
 ### Membros
-Ana Carolina Cebin Pereira - 20152bsi0188
+Ana Carolina Cebin Pereira - 20152bsi0188<br>
 Matheus Kleber Rodrigues Barbosa - 20152bsi0218
 
 # Relatório - Implementação do A*
@@ -11,7 +11,7 @@ Matheus Kleber Rodrigues Barbosa - 20152bsi0218
 
 O problema proposto consiste em um robô achar um caminho de um ponto de origem até um ponto destino dentro de um determinado mapa sem colidir com nenhum obstáculo.
 
-![mapa](https://github.com/MatheusRBarbosa/ifes-ia-a-estrela/blob/master/img/mapa.png)
+![mapa](img/mapa.png)
 
 A imagem acima representa o mapa em questão. Onde o quadrado vermelho representa o início, o verde, o final e os pretos, os obstáculos.
 
