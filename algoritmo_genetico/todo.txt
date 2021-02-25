@@ -1,0 +1,19 @@
+fitness function (FN) = f(x) = cos(x) * x + 2
+
+individuo:
+
+
+phase inicializacao da populacao:
+- definir tamanho da populacao
+- iniciar com individuos aleatorios
+- realizar elitismo (?)
+
+
+phase avaliar cada individuo:
+- passar a populacao pela FN
+- Selecionar individuos baseado no FN
+    - Selecionar por torneio
+
+phase cross-over:
+
+phase mutacao:
