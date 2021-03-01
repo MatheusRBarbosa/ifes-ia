@@ -67,6 +67,7 @@ def phase_mutation(population):
     for subject in result_population:
         subject.mutate()
     
+    print_phase_result(4, "Mutation", result_population)
     return result_population
 
 

@@ -15,7 +15,9 @@ class Subject():
         child = Subject()
         child.binary_gene[:index] = self.binary_gene.copy()
         child.binary_gene[index:] = parent[index:].copy()
+        
         child.gene_value = self.__generate_gene_value()
+        child.fitness_value = self.__fitness_function()
 
         return child
     
@@ -27,6 +29,10 @@ class Subject():
                     self.binary_gene[i] = 1
                 else:
                     self.binary_gene[i] = 0
+                
+                self.gene_value = self.__generate_gene_value()
+                self.fitness_value = self.__fitness_function()
+                
 
     def __normalize_gene_value(self, value):
         min = self.configs.normalized_interval[0]
