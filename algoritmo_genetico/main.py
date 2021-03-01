@@ -28,8 +28,8 @@ def phase_tournament(population):
 
     #x = 0
     for i in range(size):
-        r1 = randint(0, 9)
-        r2 = randint(0, 9)
+        r1 = randint(0, size-1)
+        r2 = randint(0, size-1)
         
         #print("====> {}".format(x))
         #print("{}({}) vs {}({})".format(population[r1].fitness_value, r1, population[r2].fitness_value, r2))
@@ -48,12 +48,21 @@ def phase_crossover(population):
     result_population = [Subject() for _ in range(size)]
 
     for i in range(0, size, 2):
-        r1 = randint(0, 9)
-        r2 = randint(0, 9)
+        r1 = randint(0, size-1)
+        r2 = randint(0, size-1)
 
         can_crossover = randint(0, 100) <= configs.crossover_rate
         if(can_crossover):
-            #TODO continue
+            index_to_crop = randint(1, (configs.binary_gene_size - 1))
+
+            actual = population[r1]
+            next = population[r2]
+            
+            result_population[i] = actual.crossover(index_to_crop, next.binary_gene)
+            result_population[i+1] = next.crossover(index_to_crop, actual.binary_gene)
+    
+    print_phase_result(3, "Crossover", result_population)
+    return result_population
 
 
 
