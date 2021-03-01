@@ -18,6 +18,15 @@ class Subject():
         child.gene_value = self.__generate_gene_value()
 
         return child
+    
+    def mutate(self):
+        for i in range(len(self.binary_gene)):
+            can_mutate = randint(1, 100) <= self.configs.mutate_rate
+            if(can_mutate):
+                if self.binary_gene[i] == 0:
+                    self.binary_gene[i] = 1
+                else:
+                    self.binary_gene[i] = 0
 
     def __normalize_gene_value(self, value):
         min = self.configs.normalized_interval[0]
