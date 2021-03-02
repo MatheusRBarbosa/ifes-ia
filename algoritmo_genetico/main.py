@@ -13,6 +13,7 @@ def main():
     selected_population = phase_tournament(base_population)
     crossovered_population = phase_crossover(selected_population)
     mutated_population = phase_mutation(crossovered_population)
+    elit_population = phase_elitism(mutated_population, base_population)
 
 ###########################
 #          PHASES         #
@@ -70,6 +71,28 @@ def phase_mutation(population):
     print_phase_result(4, "Mutation", result_population)
     return result_population
 
+def phase_elitism(actual_population, base_population):
+    min = inf
+    max = -inf
+    best_subject = None
+    worst_subject = None
+    index_to_change = 0
+
+    for subject in base_population:
+        if subject.fitness_value <= min:
+            best_subject = subject
+            min = subject.fitness_value
+    
+    for i in range(len(actual_population)):
+        subject = actual_population[i]
+        if subject.fitness_value >= max:
+            worst_subject = subject
+            max = subject.fitness_value
+            index_to_change = i
+    
+    actual_population[index_to_change] = best_subject
+    print_phase_result(5, "Elitismo", actual_population)
+    return actual_population
 
 ###########################
 #         METHODS         #
