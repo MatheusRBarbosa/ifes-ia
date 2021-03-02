@@ -9,23 +9,30 @@ from tools import *
 ###########################
 
 def main():
-    base_population = phase_create_population()
-    selected_population = phase_tournament(base_population)
-    crossovered_population = phase_crossover(selected_population)
-    mutated_population = phase_mutation(crossovered_population)
-    elit_population = phase_elitism(mutated_population, base_population)
+    elit_population = None
+    for i in range(configs.default_generations_interacions):
+        base_population = phase_base_population(elit_population)
+        selected_population = phase_tournament(base_population)
+        crossovered_population = phase_crossover(selected_population)
+        mutated_population = phase_mutation(crossovered_population)
+        elit_population = phase_elitism(mutated_population, base_population)
+        
 
 ###########################
 #          PHASES         #
 ###########################
 
-def phase_create_population():
-    population = [Subject() for _ in range(configs.population_size[0])]
+def phase_base_population(prev_population):
+    if prev_population == None:
+        population = [Subject() for _ in range(configs.population_size)]
+    else:
+        population = prev_population
+
     print_phase_result(1, "População base", population)
     return population
 
 def phase_tournament(population):
-    size = configs.population_size[0]
+    size = configs.population_size
     result_population = population
 
     for i in range(size):
@@ -41,7 +48,7 @@ def phase_tournament(population):
     return result_population
 
 def phase_crossover(population):
-    size = configs.population_size[0]
+    size = configs.population_size
     result_population = population
 
     for i in range(0, size, 2):
@@ -62,7 +69,7 @@ def phase_crossover(population):
     return result_population
 
 def phase_mutation(population):
-    size = configs.population_size[0]
+    size = configs.population_size
     result_population = population
 
     for subject in result_population:
