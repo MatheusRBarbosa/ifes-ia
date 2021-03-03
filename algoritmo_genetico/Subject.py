@@ -3,16 +3,16 @@ from Configs import Configs
 from tools import *
 from math import *
 
-class Subject():
-    def __init__(self):
-        self.configs = Configs()
+class Subject:
+    def __init__(self, configs):
+        self.configs = configs
         self.binary_gene = []
         self.gene_value = 0
         self.fitness_value = 0
         self.__init_values()
     
     def crossover(self, index, parent):
-        child = Subject()
+        child = Subject(self.configs)
         child.binary_gene[:index] = self.binary_gene.copy()
         child.binary_gene[index:] = parent[index:].copy()
         

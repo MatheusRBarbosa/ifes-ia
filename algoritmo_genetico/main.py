@@ -9,13 +9,17 @@ from tools import *
 ###########################
 
 def main():
+    gen = 1
     elit_population = None
+    
     for i in range(configs.default_generations_interacions):
         base_population = phase_base_population(elit_population)
         selected_population = phase_tournament(base_population)
         crossovered_population = phase_crossover(selected_population)
         mutated_population = phase_mutation(crossovered_population)
         elit_population = phase_elitism(mutated_population, base_population)
+        print_best_subject(elit_population, gen)
+        gen += 1
         
 
 ###########################
@@ -24,11 +28,11 @@ def main():
 
 def phase_base_population(prev_population):
     if prev_population == None:
-        population = [Subject() for _ in range(configs.population_size)]
+        population = [Subject(configs) for _ in range(configs.population_size)]
     else:
         population = prev_population
 
-    print_phase_result(1, "População base", population)
+    #print_phase_result(1, "População base", population)
     return population
 
 def phase_tournament(population):
@@ -44,7 +48,7 @@ def phase_tournament(population):
         else:
             result_population[i] = population[r1]
     
-    print_phase_result(2, "População selecionada", result_population)
+    #print_phase_result(2, "População selecionada", result_population)
     return result_population
 
 def phase_crossover(population):
@@ -65,7 +69,7 @@ def phase_crossover(population):
             result_population[i] = actual.crossover(index_to_crop, next.binary_gene)
             result_population[i+1] = next.crossover(index_to_crop, actual.binary_gene)
     
-    print_phase_result(3, "Crossover", result_population)
+    #print_phase_result(3, "Crossover", result_population)
     return result_population
 
 def phase_mutation(population):
@@ -75,7 +79,7 @@ def phase_mutation(population):
     for subject in result_population:
         subject.mutate()
     
-    print_phase_result(4, "Mutation", result_population)
+    #print_phase_result(4, "Mutation", result_population)
     return result_population
 
 def phase_elitism(actual_population, base_population):
@@ -98,14 +102,11 @@ def phase_elitism(actual_population, base_population):
             index_to_change = i
     
     actual_population[index_to_change] = best_subject
-    print_phase_result(5, "Elitismo", actual_population)
+    #print_phase_result(5, "Elitismo", actual_population)
     return actual_population
 
-###########################
-#         METHODS         #
-###########################
 
-
+####################
 global configs
 configs = Configs()
 
