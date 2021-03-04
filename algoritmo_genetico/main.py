@@ -12,7 +12,7 @@ def main():
     gen = 1
     elit_population = None
     
-    for i in range(configs.default_generations_interacions):
+    for i in range(configs.generations_interacions):
         base_population = phase_base_population(elit_population)
         selected_population = phase_tournament(base_population)
         crossovered_population = phase_crossover(selected_population)
