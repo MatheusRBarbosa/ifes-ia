@@ -260,6 +260,6 @@ Para atingir o valor ideal, que é -16.87 em quase todas as vezes foi necessári
 * Chance de crossover = 75%
 * Chance de mutação = 3%
 
-Com esses valores ainda foi possível notar uma aptidão final de -13. Mas é muito raro de acontecer.
+Com esses valores ainda foi possível notar uma aptidão final de -13, mas é muito raro de acontecer. Os valore são majoritariamente de -16.87, que é o valor ideal.
 
 
